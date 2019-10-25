@@ -47,21 +47,21 @@ class TestDiplomacy (TestCase):
         self.assertEqual(
             w.getvalue(), "A [dead]\n B [dead]\n C [dead]\n D [dead]\n")
         
-    def test_solve4(self):
+    def test_solve5(self):
         r = StringIO("A Madrid Hold\n B Barcelona Move Madrid\n C London Move Madrid\n")
         w = StringIO()
         diplomacy_solve(r, w)
         self.assertEqual(
             w.getvalue(), "A [dead]\n B [dead]\n C [dead]\n")
         
-    def test_solve5(self):
+    def test_solve6(self):
         r = StringIO("A Madrid Hold\n B Barcelona Move Madrid\n C London Support B\n D Paris Support B\n")
         w = StringIO()
         diplomacy_solve(r, w)
         self.assertEqual(
             w.getvalue(), "A [dead]\n B Madrid\n C [dead]\n D Paris\n")
         
-    def test_solve6(self):
+    def test_solve7(self):
         r = StringIO("A Madrid Hold\n B Barcelona Move Madrid\n C London Move Madrid\n D Paris Support B\n E Austin Support A\n")
         w = StringIO()
         diplomacy_solve(r, w)
