@@ -23,7 +23,7 @@ class War(Army):
             self.action[1].supported  = True
             #Call function to resolve what happens next
         #Hold
-        else:
+        #else:
     
     #Move and track 
     def cityTracker(self, city_lst):
@@ -46,16 +46,19 @@ class War(Army):
     
 
         
-# read std in
+# read std in and create war 
 def diplomacy_read(r, w):
     r = r.split("\n") # splits reader by line
     dip = War()
     lst = []
+    #Create Army objects and dict
     for s in r: # for string in reader
         army, city, action = dip.diplomacyZip(s)
-        #Create Army objects
         army = Army(action, location = city)
         lst.append(army)
     dip.cityTracker(lst)
     return dip 
+
+#Runs diplomacy program 
+def diplomacy_run():
 
