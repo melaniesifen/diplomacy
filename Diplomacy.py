@@ -1,4 +1,4 @@
-from collections import Counter as C
+from collections import defaultdict as D
 
 # read std in and solve warfare problem
 def diplomacy_solve(r, w):
@@ -33,29 +33,8 @@ def diplomacy_support(action, army):
 def diplomacy_eval(lst):
     # if cities are all different, all armies are alive
     city_lst = list(zip(*lst))[1] # list of all cities
+    army_lst = list(zip(*lst))[0] # list of all armies
     if len(city_lst) == len(set(city_lst)): # checks for unique cities
         return #army city, army ciy, ... army, city
     # if city is repeated, then multiple armies are in one city (at war)
-    armies_at_war = diplomacy_warfare(city_lst, lst)
-    # for item in lst: largest count = city, others = [dead]
-    
-# create new list of cities with duplicates
-# return the list of armies at war with support
-def diplomacy_warfare(city_lst, lst):
-    city_lst_duplicates1, city_lst_duplicates2 = set(), set()
-    add1, add2 = city_lst_duplicates1.add, city_lst_duplicates2.add
-    for city in city_lst:
-        if city in city_lst_duplicates1:
-            add2(city)
-        else:
-            add1(city)
-    cities_at_war = list(city_lst_duplicates2) # list of all duplicate cities (cities at war)
-    
-    armies_at_war = []
-    for city in cities_at_war:
-        armies = []
-        for tup in lst:
-            if tup[1] == city:
-                armies += tup[0]
-        armies_at_war += [armies]
-    
+    # create dict = {city : [army in city, armcy in city], city2 : [army in city2, ...]}
