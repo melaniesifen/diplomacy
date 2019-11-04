@@ -14,33 +14,40 @@ class Army(object):
 
 class War(Army):
     def __init__(self):
+        super().__init__(self, letter = "A", action = [], supported = False, alive = True, location = "Madrid")
         self.cities = {}
 
-    #Perform action (move, hold, support)
+    #Resolve actions (move, hold, support)
+    #Call after making dictionary 
     def actionTaken(self):
-        #Move and resolve action
-        if self.action[0] == 'move':
-            self.location = self.action[1] 
-            #Call function to resolve what happens next
-        #Support and resolve action
-        elif self.action[0] == 'support':
-            self.action[1].supported  = True
-            #Call function to resolve what happens next
-        #Hold
-        #else:
-    
-    #Move and track 
-    def cityTracker(self, city_lst):
+        armyList = list(self.cities.values())
+        for i in armyList:
+            #If army action move, update location attribute and dict city value 
+            if armyList[i].action[0] == "Move":              
+                #If city doesnt exist in dict already
+                if self.cities[armyList[i].action[-1]] not in self.cities:
+                    self.cities[armyList[i].action[-1]] = armyList[i]  #Create new city in dict
+                    self.cities[armyList[i].location] = armyList[i].action[-1]   #New army location
+            elif self.cities[i].action[0] == "Support":
+                
+    #Move armies based on moves
+    #Create new dict with processed moves 
+    #{city: [[army, move], ...], ...}
+    def cityTracker(self, city_lst, army_lst):
         #Dictionary to hold cities and armies occupying the cities
         #{city : [List of armies in city],...}
         city_dict = {}
         for i in city_lst:
             if i not in city_dict:
-                city_dict[i] = list(city_lst(zip(*lst))[0])
+                city_dict[i] = list(city_lst(zip(*army_lst))[0])
             elif i in city_dict:
                 city_dict[i].append(i)
-        return city_dict
-    
+        #If cities attribute empty update it
+        if len(self.cities) == 0:
+            self.cities = city_dict
+        else:
+            return city_dict
+
     def __str__(self):
         return self.army + " " + self.city + " " + self.action
 
@@ -48,13 +55,13 @@ class War(Army):
 # read std in and create war 
 def diplomacy_read(r):
     r = r.split("\n") # splits reader by line
-    lst = []
-    #Create Army objects and dict
+    army_lst = []
+    #Create Army object list
     for s in r: # for string in reader
         army_letter, city, action = diplomacy_separate(s)
         army = Army(army_letter, action, location = city)
-        lst.append(str(army))
-    return lst
+        army_lst.append(str(army))
+    return army_lst
 
 def diplomacy_separate(s):
     s = s.split()
