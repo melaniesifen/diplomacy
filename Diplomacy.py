@@ -12,44 +12,49 @@ class Army(object):
         action = " ".join(a for a in self.action)
         return  self.letter + " " + self.location + " " + action
 
-class War(Army):
-    def __init__(self):
-        super().__init__(self, letter = "A", action = [], supported = False, alive = True, location = "Madrid")
-        self.cities = {}
+class War(object):
+    def __init__(self, armyList = []):
+        self.armyList = armyList
+        self.cityList = [army.location for army in armyList]
+        
 
     #Resolve actions (move, hold, support)
     #Call after making dictionary 
-    def actionTaken(self):
-        armyList = list(self.cities.values())
-        for i in armyList:
+    def actionTaken(self, city_dict):
+        armyList = self.armyList
+        for army in self.armyList:
             #If army action move, update location attribute and dict city value 
-            if armyList[i].action[0] == "Move":              
+            if armyList[army].action[0] == "Move":              
                 #If city doesnt exist in dict already
-                if self.cities[armyList[i].action[-1]] not in self.cities:
-                    self.cities[armyList[i].action[-1]] = armyList[i]  #Create new city in dict
-                    self.cities[armyList[i].location] = armyList[i].action[-1]   #New army location
-            elif self.cities[i].action[0] == "Support":
+                if city_dict[armyList[army].action[-1]] not in city_dict:
+                    city_dict[armyList[army].action[-1]] = armyList[army]  #Create new city in dict
+                    city_dict[armyList[army].location] = armyList[army].action[-1]   #New army location
+        for army in armyList:
+            if city_dict[army].action[0] == "Support":
+                supported_army = army.action[-1]
+                new_location = supported_army.location
+                city_dict[armyList[army].location] = new_location
+                city_dict[armyList[army].letter] = supported_army
+        return city_dict
+    
                 
     #Move armies based on moves
     #Create new dict with processed moves 
     #{city: [[army, move], ...], ...}
-    def cityTracker(self, city_lst, army_lst):
-        #Dictionary to hold cities and armies occupying the cities
-        #{city : [List of armies in city],...}
-        city_dict = {}
-        for i in city_lst:
-            if i not in city_dict:
-                city_dict[i] = list(city_lst(zip(*army_lst))[0])
-            elif i in city_dict:
-                city_dict[i].append(i)
-        #If cities attribute empty update it
-        if len(self.cities) == 0:
-            self.cities = city_dict
-        else:
-            return city_dict
+    def get_city_dict(self):
+        pass
+    
+    # count len of value in dict 
+    def count_len(self, city_dict):
+        pass
 
     def __str__(self):
         return self.army + " " + self.city + " " + self.action
+    
+    def solve(self):
+        # city_dict = get_city_dict(self, city_lst)
+        # new_dict = actionTaken(self, armylist, city_dictt)
+        # 
 
         
 # read std in and create war 
@@ -69,11 +74,11 @@ def diplomacy_separate(s):
     army, city, action = next(s), next(s), list(s)
     return army, city, action
 
-def diplomacy_solve():
-    # take army objects and determine new city based on action "move"
-    # update army objects based on move (in a class function)
-    # check which armies are supporting - what happens to those armies? Change alive bool
-    pass
+def diplomacy_solve(r):
+    army_lst = diplomacy_read(r) # create list of army objects from reader
+    war = War(army_lst) # create war object from army list
+    war.solve() # solve war
+    
     
     
 
