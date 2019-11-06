@@ -1,85 +1,117 @@
-from collections import Counter as C
-    
 class Army(object):
-    def __init__(self, letter = "A", action = [], supported = False, alive = True, location = "Madrid"):
+    def __init__(self, letter = "A", action = [], city = "Madrid", support = 0, alive = True):
         self.letter = letter
-        self.action = action #List containing action and army action taken toward
-        self.supported = supported
-        self.alive = alive 
-        self.location = location
+        self.action = action
+        self.support = support
+        self.alive = alive
+        self.city = city
         
+    def set_location(self, new_city):
+        self.city = new_city
+        return self.city
+    
     def __str__(self):
         action = " ".join(a for a in self.action)
-        return  self.letter + " " + self.location + " " + action
-
+        return self.letter + " " + self.city + " " + action
+    
 class War(object):
-    def __init__(self, armyList = []):
-        self.armyList = armyList
-        self.cityList = [army.location for army in armyList]
+    def __init__(self, army_lst = [], city_lst = []):
+        self.army_lst = army_lst
+        self.city_lst = [army.city for army in army_lst]
         
-
-    #Resolve actions (move, hold, support)
-    #Call after making dictionary 
-    def actionTaken(self, city_dict):
-        armyList = self.armyList
-        for army in self.armyList:
-            #If army action move, update location attribute and dict city value 
-            if armyList[army].action[0] == "Move":              
-                #If city doesnt exist in dict already
-                if city_dict[armyList[army].action[-1]] not in city_dict:
-                    city_dict[armyList[army].action[-1]] = armyList[army]  #Create new city in dict
-                    city_dict[armyList[army].location] = armyList[army].action[-1]   #New army location
-        for army in armyList:
-            if city_dict[army].action[0] == "Support":
-                supported_army = army.action[-1]
-                new_location = supported_army.location
-                city_dict[armyList[army].location] = new_location
-                city_dict[armyList[army].letter] = supported_army
+    def move(self):
+        for army in self.army_lst:
+            if army.action[0] == "Move":
+                army.set_location(army.action[1])
+        self.city_lst = list(set(army.city for army in self.army_lst))
+        
+    def set_city_dict(self):
+        city_dict = {city : [] for city in self.city_lst}
+        for key in city_dict:
+            for army in self.army_lst:
+                if army.city == key:
+                    city_dict[key].append(army)
         return city_dict
     
-                
-    #Move armies based on moves
-    #Create new dict with processed moves 
-    #{city: [[army, move], ...], ...}
-    def get_city_dict(self):
-        pass
+    def eval_war(self, city_dict):
+        for key, value in city_dict.items():
+            if len(value) == 1:
+                army = value[0]
+                if army.action[0] == "Support":
+                    self.add_support(army.action[1])
+        for key, value in city_dict.items():
+            if len(value) != 1:
+                for army in value:
+                    if army.action[0] == "Support":
+                        self.support(value)
+                        if army.alive:
+                            self.add_support(army.action[1])
+        for key, value in city_dict.items():
+            if len(value) != 1:
+                if any(army.action[0] == "Support" for army in value):
+                    continue
+                else:
+                    self.support(value)
     
-    # count len of value in dict 
-    def count_len(self, city_dict):
-        pass
-
-    def __str__(self):
-        return self.army + " " + self.city + " " + self.action
+    def add_support(self, letter):
+        for army in self.army_lst:
+            if army.letter == letter:
+                army.support += 1
+                
+    def support(self, value):
+        support_values = [army.support for army in value]
+        armies = [army for army in value]
+        support_tuples = list(zip(armies, support_values))
+        max_value = max(tup[1] for tup in support_tuples)
+        max_armies = []
+        dead_armies = []
+        for tup in support_tuples:
+            if tup[1] == max_value:
+                max_armies.append(tup[0])
+            else:
+                dead_armies.append(tup[0])
+        if len(max_armies) > 1:
+            dead_armies += max_armies
+        for army in dead_armies:
+            army.alive = False
+            
+    def war_result(self):
+        lst = []
+        for army in self.army_lst:
+            if army.alive == False:
+                army.city = "[dead]"
+            lst.append(army.letter + " " + army.city)
+        w = "\n".join(item for item in lst)
+        return w
     
     def solve(self):
-        # city_dict = get_city_dict(self, city_lst)
-        # new_dict = actionTaken(self, armylist, city_dictt)
-        # 
-
-        
-# read std in and create war 
+        self.move()
+        d = self.set_city_dict()
+        self.eval_war(d)
+        result = self.war_result()
+        return result
+    
 def diplomacy_read(r):
-    r = r.split("\n") # splits reader by line
+    r = r.split("\n")
     army_lst = []
-    #Create Army object list
-    for s in r: # for string in reader
+    for s in r:
         army_letter, city, action = diplomacy_separate(s)
-        army = Army(army_letter, action, location = city)
-        army_lst.append(str(army))
+        army = Army(letter = army_letter, action = action, city = city)
+        army_lst.append(army)
     return army_lst
 
 def diplomacy_separate(s):
     s = s.split()
     s = iter(s)
-    army, city, action = next(s), next(s), list(s)
-    return army, city, action
+    army_letter, city, action = next(s), next(s), list(s)
+    return army_letter, city, action
 
 def diplomacy_solve(r):
-    army_lst = diplomacy_read(r) # create list of army objects from reader
-    war = War(army_lst) # create war object from army list
-    war.solve() # solve war
-    
-    
-    
+    army_lst = diplomacy_read(r)
+    war = War(army_lst)
+    result = war.solve()
+    return result
 
-
+        
+                    
+                        
