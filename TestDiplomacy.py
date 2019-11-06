@@ -62,6 +62,12 @@ class TestDiplomacy (TestCase):
         self.assertEqual(
             w, ("A [dead]\nB [dead]\nC [dead]\nD Paris\nE Austin")
         )
+    def test_solve8(self):
+        r = "A Madrid Support C\nB Barcelona Hold\nC London Move Madrid"
+        w = diplomacy_solve(r)
+        self.assertEqual(
+            w, ("A [dead]\nB Barcelona\nC [dead]")
+        )
 
 
 # ----

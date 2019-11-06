@@ -1,0 +1,177 @@
+commit cd93a9e9e424b3b383b59cd07f21918775bfaf18
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Tue Nov 5 20:42:22 2019 -0600
+
+    updated unit tests
+
+commit 9512fd745e11ac7873cb7d86b84538c65d18dcb5
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Tue Nov 5 20:41:58 2019 -0600
+
+    fixed bugs, returns correct results for all unit tests
+
+commit 1c60cfc98999aa031bf4fe7ba8e81017fe0afe96
+Merge: 2c90cc7 83b4d6b
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Mon Nov 4 15:07:57 2019 -0600
+
+    Merge branch 'dev' of https://gitlab.com/melaniesifen/diplomacy into dev
+
+commit 2c90cc7cb0ae62bee390d8d207607ccaf30f58ef
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Mon Nov 4 15:07:05 2019 -0600
+
+    changes to diplomacy.py
+
+commit 83b4d6b2a518a26bfe4070ea18319f9368da531b
+Author: optimuhs <franciscoj12m.@hotmail.com>
+Date:   Mon Nov 4 15:05:50 2019 -0600
+
+    minor variable fixes, new functions defined
+
+commit 9caa10eca5be07f681461153789e7673ab65e94a
+Author: optimuhs <franciscoj12m.@hotmail.com>
+Date:   Mon Nov 4 13:51:26 2019 -0600
+
+    Modified citytracker and actionTaken
+
+commit b3679bc1d52c12bef512c162ddd2a6de7a179b10
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Nov 1 14:08:22 2019 -0500
+
+    removed Dip2.pu
+
+commit de492a1f4a7b5b5b47ca228e56ccf29ed0dd3399
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Nov 1 14:07:58 2019 -0500
+
+    added unit tests for diplomacy.py
+
+commit 29e0f728d8386217309e4ec858b18f62425af969
+Merge: d193057 d6a2a86
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Nov 1 12:25:27 2019 -0500
+
+    Merge branch 'dev' of https://gitlab.com/melaniesifen/diplomacy into dev
+
+commit d1930573635946039fb0e80031a196f65d68c97c
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Nov 1 12:25:11 2019 -0500
+
+    fixed diplomacy_eval
+
+commit d6a2a866fb6567e1db86607b2aa7de144d2e691c
+Merge: 22b37d0 92ee695
+Author: Melanie <melanie.sifen@gmail.com>
+Date:   Fri Nov 1 17:24:17 2019 +0000
+
+    Merge branch 'Dev' into 'dev'
+    
+    Dev
+    
+    See merge request melaniesifen/diplomacy!1
+
+commit 92ee695ce2793e474e8ddcc8e6d011a709146aa0
+Author: optimuhs <franciscoj12m.@hotmail.com>
+Date:   Fri Nov 1 12:10:07 2019 -0500
+
+    Diplomacy attempt 2
+
+commit fa4caa0f062e35f4555608408fa6645d4c38ac6b
+Author: optimuhs <franciscoj12m.@hotmail.com>
+Date:   Thu Oct 31 15:20:07 2019 -0500
+
+    Cleaned up and semi changed the file. Let me know what you think
+
+commit acf94179bca84bde362d12c7168d33bbe25b3662
+Author: optimuhs <franciscoj12m.@hotmail.com>
+Date:   Wed Oct 30 17:25:20 2019 -0500
+
+    My (francisco)changes to original file
+
+commit 22b37d0ed372f0dd3a1cc2fb793311e6928fab38
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Wed Oct 30 14:00:52 2019 -0500
+
+    fixed diplomacy_eval
+
+commit 5e084081df86c871f11a7ad65ce070254138a40f
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Wed Oct 30 13:28:32 2019 -0500
+
+    added functionality to Diplomacy.py
+
+commit 9441636935d1d2d3c461b9038b1fc2b2958e1dcf
+Merge: 790008b 4cc1b26
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Mon Oct 28 21:17:18 2019 -0500
+
+    acceptance tests 1-7 created
+
+commit 790008b98f3188329f318a8172734060df452415
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Mon Oct 28 21:14:49 2019 -0500
+
+    added functionality to Diplomacy.py
+
+commit 4cc1b2653692b0ce1ca0af43296ea00b0ee07810
+Author: Optimuhs <franciscoj12m@hotmail.com>
+Date:   Fri Oct 25 13:53:21 2019 -0700
+
+    Made acceptance tests
+
+commit 35ca184b338792b5e1a9b034b3ebab511e60a98c
+Merge: 8c9f25c 926dc96
+Author: Optimuhs <franciscoj12m@hotmail.com>
+Date:   Fri Oct 25 13:43:49 2019 -0700
+
+    Merge branch 'dev' of https://gitlab.com/melaniesifen/diplomacy into dev
+    Created acceptance tests for unittests.
+
+commit 8c9f25cacff5b3a573459e2d617799c75e72c258
+Author: Optimuhs <franciscoj12m@hotmail.com>
+Date:   Fri Oct 25 13:42:13 2019 -0700
+
+    Created acceptance tests
+
+commit 926dc96a2c62f032aa3fc650edf27140624558ac
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Oct 25 13:41:33 2019 -0500
+
+    added unit tests
+
+commit 3183d4437baba185874719fa0d521cddb8b7ac92
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Oct 25 13:39:32 2019 -0500
+
+    added unit tests
+
+commit 78202c05f24b38e2321ecd74bc80eb30e735b558
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Oct 25 13:37:43 2019 -0500
+
+    added unit tests
+
+commit 73462ed6e8e7e1cf7e4d018b3b2347534fbb2b3d
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Fri Oct 25 13:16:13 2019 -0500
+
+    Edited RunDiplomacy.py
+
+commit 9ccc576f91e9dc28985e47a12cb717e93a5268e0
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Wed Oct 23 16:39:32 2019 -0500
+
+    added .gitignore and CI
+
+commit d6b090a2a27955266433f391e5b7bc173b391723
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Wed Oct 23 16:38:17 2019 -0500
+
+    added files from project 1 as template
+
+commit 6852d319cd89420e973fac163854dc4a8fb92569
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Wed Oct 23 16:15:23 2019 -0500
+
+    add README
