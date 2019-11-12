@@ -43,28 +43,22 @@ class War(object):
         return city_dict
     
     #Evaluates the outcome of the war
-    def eval_war(self, city_dict):
-        #If supporting from a singlely occupied city
+    def eval_war(self, city_dict): 
+        #if all armies are at war, support is invalid
+        if all(len(value) > 1 for value in city_dict.values()):
+            for army in self.army_lst:
+                army.alive = False
+            return
         for key, value in city_dict.items():
+           # If army is not at war and it supporting, support is valid
             if len(value) == 1:
                 army = value[0]
                 if army.action[0] == "Support":
                     self.add_support(army.action[1])
-        #Checks supported armies and determins which live
+        # Checks which armies live based on number of supporting armies
         for key, value in city_dict.items():
             if len(value) != 1:
-                for army in value:
-                    if army.action[0] == "Support":
-                        self.support(value)
-                        if army.alive:
-                            self.add_support(army.action[1])
-        #Checks for values that are not support in the dictionary
-        for key, value in city_dict.items():
-            if len(value) != 1:
-                if any(army.action[0] == "Support" for army in value):
-                    continue
-                else:
-                    self.support(value)
+                self.support(value)
     
     #Updates support attribte for army 
     def add_support(self, letter):

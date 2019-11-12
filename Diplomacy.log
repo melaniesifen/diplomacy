@@ -1,3 +1,15 @@
+commit 930420824e3b75dc180cd4a725b6927740a02a02
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Tue Nov 12 14:54:48 2019 -0600
+
+    Test cases must end with newline character
+
+commit 2ed65c192d1ed0aa4e8e02a132f12df930e24b81
+Author: Optimuhs <franciscoj12m@hotmail.com>
+Date:   Mon Nov 11 16:37:06 2019 -0800
+
+    Make test successful, RunDiplomacyTmp has type error. Run make test twice for sucess
+
 commit ad02fd160736d36827327b2681020b17e836a6e1
 Merge: 3801658 4a07d57
 Author: Melanie Sifen <melanie.sifen@gmail.com>
