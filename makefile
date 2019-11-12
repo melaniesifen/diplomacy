@@ -4,16 +4,22 @@ FILES :=                              \
     Diplomacy.html                      \
     Diplomacy.log                       \
     Diplomacy.py                        \
-    RunDiplomacyN.in                     \
-    RunDiplomacyN.out                    \
     RunDiplomacy.py                     \
     TestDiplomacy.out                   \
     TestDiplomacy.py \
-	#cs330e-collatz-tests/melaniesifen-RunCollatz.in   \
-	#cs330e-collatz-tests/melaniesifen-RunCollatz.out  \
-	#cs330e-collatz-tests/melaniesifen-TestCollatz.out \
-	#cs330e-collatz-tests/melaniesifen-TestCollatz.py  
-#
+	RunDiplomacy1.in   \
+	RunDiplomacy1.out  \
+	RunDiplomacy2.in   \
+	RunDiplomacy2.out  \
+	RunDiplomacy3.in   \
+	RunDiplomacy3.out  \
+	RunDiplomacy4.in   \
+	RunDiplomacy4.out  \
+	RunDiplomacy5.in   \
+	RunDiplomacy5.out  \
+	TestDiplomacy.out \
+	TestDiplomacy.py  \
+
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3
@@ -48,9 +54,9 @@ Diplomacy.html: Diplomacy.py
 Diplomacy.log:
 	git log > Diplomacy.log
 
-RunDiplomacy.tmp: RunDiplomacyN.in RunDiplomacyN.out RunDiplomacy.py
-	$(PYTHON) RunDiplomacy.py < RunDiplomacyN.in > RunDiplomacy.tmp
-	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacyN.out
+RunDiplomacy.tmp: RunDiplomacy1.in RunDiplomacy1.out RunDiplomacy.py
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy1.in > RunDiplomacy.tmp
+	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy1.out
 
 TestDiplomacy.tmp: TestDiplomacy.py
 	$(COVERAGE) run    --branch TestDiplomacy.py >  TestDiplomacy.tmp 2>&1
