@@ -100,7 +100,7 @@ class War(object):
                 army.city = "[dead]"
             lst.append(army.letter + " " + army.city)
         w = "\n".join(item for item in lst)
-        return w
+        return w + "\n"
     
     #Solve the war and return the result
     def solve(self):
@@ -117,6 +117,8 @@ def diplomacy_read(r):
     r = r.split("\n")
     army_lst = []
     for s in r:
+        if not s:
+            continue
         army_letter, city, action = diplomacy_separate(s)
         army = Army(letter = army_letter, action = action, city = city)
         army_lst.append(army)
