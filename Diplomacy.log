@@ -1,3 +1,9 @@
+commit 6dddddd7d7ab9b95d02750f38ec423703f027ca4
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Tue Nov 12 15:09:20 2019 -0600
+
+    If supporting armies are at war, the support is invalid
+
 commit 930420824e3b75dc180cd4a725b6927740a02a02
 Author: Melanie Sifen <melanie.sifen@gmail.com>
 Date:   Tue Nov 12 14:54:48 2019 -0600

@@ -12,11 +12,6 @@ class Army(object):
         self.city = new_city
         return self.city
 
-    #String Representation of army, location, and action
-    def __str__(self):
-        action = " ".join(a for a in self.action)
-        return self.letter + " " + self.city + " " + action
-
 #War object
 class War(object):
     #Army_list contains army objects
@@ -108,11 +103,8 @@ class War(object):
 #Split items for each line
 #Create army object and return list of army objects
 def diplomacy_read(r):
-    r = r.split("\n")
     army_lst = []
     for s in r:
-        if not s:
-            continue
         army_letter, city, action = diplomacy_separate(s)
         army = Army(letter = army_letter, action = action, city = city)
         army_lst.append(army)
@@ -125,13 +117,18 @@ def diplomacy_separate(s):
     army_letter, city, action = next(s), next(s), list(s)
     return army_letter, city, action
 
+# print result of the war
+def diplomacy_print(result, w):
+    w.write(str(result))
+    
 #Perform diplomacy and return result
-def diplomacy_solve(r):
+def diplomacy_solve(r, w):
     army_lst = diplomacy_read(r)
     war = War(army_lst)
     result = war.solve()
-    return result
+    diplomacy_print(result, w)
+    
 
-        
+
                     
                         
