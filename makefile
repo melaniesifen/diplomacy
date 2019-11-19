@@ -19,19 +19,19 @@ FILES :=                              \
 	RunDiplomacy5.out  \
 	TestDiplomacy.out \
 	TestDiplomacy.py  \
-#   cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy1.in   \
-#    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy1.out  \
-#	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy2.in   \
-#    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy2.out  \
-#	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy3.in   \
-#    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy3.out  \
-#	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy4.in   \
-#    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy4.out  \
-#	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy5.in   \
-#    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy5.out  \
-#    cs330e-Diplomacy-tests/YourGitLabID-TestDiplomacy.out \
-#    cs330e-Diplomacy-tests/YourGitLabID-TestDiplomacy.py  \
-#
+   cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy1.in   \
+    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy1.out  \
+	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy2.in   \
+    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy2.out  \
+	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy3.in   \
+    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy3.out  \
+	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy4.in   \
+    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy4.out  \
+	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy5.in   \
+    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy5.out  \
+    cs330e-Diplomacy-tests/melaniesifen-TestDiplomacy.out \
+    cs330e-Diplomacy-tests/melaniesifen-TestDiplomacy.py  \
+
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3
@@ -66,9 +66,25 @@ Diplomacy.html: Diplomacy.py
 Diplomacy.log:
 	git log > Diplomacy.log
 
-RunDiplomacy.tmp: RunDiplomacy2.in RunDiplomacy2.out RunDiplomacy.py
-	$(PYTHON) RunDiplomacy.py < RunDiplomacy2.in > RunDiplomacy.tmp
-	diff --strip-trailing RunDiplomacy.tmp RunDiplomacy2.out
+RunDiplomacy1.tmp: RunDiplomacy1.in RunDiplomacy1.out RunDiplomacy.py
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy1.in > RunDiplomacy1.tmp
+	diff --strip-trailing RunDiplomacy1.tmp RunDiplomacy1.out
+
+RunDiplomacy2.tmp: RunDiplomacy2.in RunDiplomacy2.out RunDiplomacy.py
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy2.in > RunDiplomacy2.tmp
+	diff --strip-trailing RunDiplomacy2.tmp RunDiplomacy2.out
+
+RunDiplomacy3.tmp: RunDiplomacy3.in RunDiplomacy3.out RunDiplomacy.py
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy3.in > RunDiplomacy3.tmp
+	diff --strip-trailing RunDiplomacy3.tmp RunDiplomacy3.out
+
+RunDiplomacy4.tmp: RunDiplomacy4.in RunDiplomacy4.out RunDiplomacy.py
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy4.in > RunDiplomacy4.tmp
+	diff --strip-trailing RunDiplomacy4.tmp RunDiplomacy4.out
+
+RunDiplomacy5.tmp: RunDiplomacy5.in RunDiplomacy5.out RunDiplomacy.py
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy5.in > RunDiplomacy5.tmp
+	diff --strip-trailing RunDiplomacy5.tmp RunDiplomacy5.out
 
 TestDiplomacy.tmp: TestDiplomacy.py
 	$(COVERAGE) run    --branch TestDiplomacy.py >  TestDiplomacy.tmp 2>&1
@@ -97,8 +113,11 @@ check:
 clean:
 	rm -f  .coverage
 	rm -f  *.pyc
-	rm -f  RunDiplomacy.tmp
-	rm -f  TestDiplomacy.tmp
+	rm -f  RunDiplomacy1.tmp
+	rm -f  RunDiplomacy2.tmp
+	rm -f  RunDiplomacy3.tmp
+	rm -f  RunDiplomacy4.tmp
+	rm -f  RunDiplomacy5.tmp
 	rm -rf __pycache__
 	rm -rf cs330e-diplomacy-tests
 
@@ -144,4 +163,4 @@ versions:
 	which        $(PYTHON)
 	$(PYTHON)    --version
 
-test: Diplomacy.html Diplomacy.log RunDiplomacy.tmp TestDiplomacy.tmp diplomacy-tests check
+test: Diplomacy.html Diplomacy.log RunDiplomacy1.tmp RunDiplomacy2.tmp RunDiplomacy3.tmp RunDiplomacy4.tmp RunDiplomacy5.tmp TestDiplomacy.tmp diplomacy-tests check

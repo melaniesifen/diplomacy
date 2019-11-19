@@ -1,3 +1,9 @@
+commit c8d0e9e24be4397343dec2dd65efee9562b6db9b
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Mon Nov 18 12:33:38 2019 -0600
+
+    fixed output for first acceptance test
+
 commit 79b10e9c38abd121b52e69d3cff470cb8715b4b7
 Author: Melanie Sifen <melanie.sifen@gmail.com>
 Date:   Tue Nov 12 16:42:12 2019 -0600
