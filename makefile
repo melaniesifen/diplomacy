@@ -19,18 +19,18 @@ FILES :=                              \
 	RunDiplomacy5.out  \
 	TestDiplomacy.out \
 	TestDiplomacy.py  \
-   cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy1.in   \
-    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy1.out  \
-	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy2.in   \
-    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy2.out  \
-	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy3.in   \
-    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy3.out  \
-	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy4.in   \
-    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy4.out  \
-	cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy5.in   \
-    cs330e-Diplomacy-tests/melaniesifen-RunDiplomacy5.out  \
-    cs330e-Diplomacy-tests/melaniesifen-TestDiplomacy.out \
-    cs330e-Diplomacy-tests/melaniesifen-TestDiplomacy.py  
+    cs330e-diplomacy-tests/melaniesifen-RunDiplomacy1.in   \
+    cs330e-diplomacy-tests/melaniesifen-RunDiplomacy1.out  \
+	cs330e-diplomacy-tests/melaniesifen-RunDiplomacy2.in   \
+    cs330e-diplomacy-tests/melaniesifen-RunDiplomacy2.out  \
+	cs330e-diplomacy-tests/melaniesifen-RunDiplomacy3.in   \
+    cs330e-diplomacy-tests/melaniesifen-RunDiplomacy3.out  \
+	cs330e-diplomacy-tests/melaniesifen-RunDiplomacy4.in   \
+    cs330e-diplomacy-tests/melaniesifen-RunDiplomacy4.out  \
+	cs330e-diplomacy-tests/melaniesifen-RunDiplomacy5.in   \
+    cs330e-diplomacy-tests/melaniesifen-RunDiplomacy5.out  \
+    cs330e-diplomacy-tests/melaniesifen-TestDiplomacy.out \
+    cs330e-diplomacy-tests/melaniesifen-TestDiplomacy.py  
 #
 
 ifeq ($(shell uname), Darwin)          # Apple

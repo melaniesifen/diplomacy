@@ -1,3 +1,21 @@
+commit 204a025ccd41a2b7822449a5faa6e9cdf537be5b
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Tue Nov 19 17:48:22 2019 -0600
+
+    uncommented lines in makefile
+
+commit ca75ae514619693aa7e3ddbe778a2d9e5e4b2e1e
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Tue Nov 19 17:44:33 2019 -0600
+
+    makefile
+
+commit a72c06014d9acf9bb4a65a6807df70ea75e5fef1
+Author: Melanie Sifen <melanie.sifen@gmail.com>
+Date:   Tue Nov 19 17:31:49 2019 -0600
+
+    added RunDiplomacyN.tmp cases to makefile
+
 commit c8d0e9e24be4397343dec2dd65efee9562b6db9b
 Author: Melanie Sifen <melanie.sifen@gmail.com>
 Date:   Mon Nov 18 12:33:38 2019 -0600
